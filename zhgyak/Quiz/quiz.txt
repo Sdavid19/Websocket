@@ -1,0 +1,43 @@
+1. AF_INET: IPv4
+2. recv(): adatok fogadásakor alkalmazzuk
+3. socket(): megnyit egy socket erőforrást és visszaad egy socket descriptors
+4. SOCK_STREAM: TCP, SOCK_DGRAM: UDP
+5. bind(): a socketet egy címhez köti
+6. listen(): várakozási sor hosszát állítja be TCP szerverek esetén
+7. accept(): kiemel egy várakozó kliens kapcsolatot a listen queue-ból
+8. connect(): kliens oldali kapcsolat kérelem elfogadása szerver által
+9. sendall(): összes adatot elküldi
+10. socket timeout: ha nincs aktív esemény,
+11. settimeout(): lásd 10
+12. recv() 0 bájtot ad vissza: connection closed by server
+13. close(): socket bezárása, erőforrás felszabadítása
+14. localhost = 127.0.0.1
+15. port szám: szerver szolgáltatás azonosítása
+16. duh
+17. kliens szerver architektúra: szerver daemon jelleggel fut és közvetít egy szolgáltatást, amit a kliensek igénybe vehetnek
+18. "blocking" socket művelet
+19. tcp socket létrehozása: `socket.socket(socket.AF_INET, socket.SOCK_STREAM)`
+20. tcp szerver sorrend: socket létrehozása, bind, listen, accept, close
+21. ~ kliens: socket létrehozása, connect, sendall, close
+22. SO_REUSEADDR opció:
+23. bináris adat küldése: sendall() által szerializáld object küldése
+24. többszörös kliens kapcsolatok kezelése: select() használata
+25. with: automatikusan be is zárja a socketet
+26. "f f 1s": 2 float és egy 1 bájtos string
+27. accept() után: accept() visszaad egy új descriptort
+28. server socket vs client socket using tcp: server kéréseket vár, kliens adatcserére használja a socketet
+29. fájlküldés: darabonként, binárisan
+30. udp socket: `socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+31. udp vs tcp: udp gyorsabb, kevésbé megbízható
+32. sendto(): udp send
+33. recvfrom(): udp receive, visszaadja a kapott adatokat és a másik fél elérhetőségeit
+34. udp datagram elméleti max mérete: 64k
+35. ha udp csomag elvész, akkor elvész; nem megbízható protokoll
+36. bind() nem kell se tcp se udp kliensnél sem
+37. udp timeout kezelése: try except blokkban
+38. proxy server szerepe: kliens kapcsolatot megszemélyesít, tovább kérelmet
+39. select() függvény: több socketet figyelünk
+40. select() -> 3 listát ad vissza: `readable, writable, exceptional`
+41. ha select() timeout: üres listát kapunk vissza
+42. socket.timeout() kivétel:
+43. tcp kapcsolat megszakadása: 0 byte recv (ha túloldal bezárta), ha nem kontrollált megszakadás: exception
